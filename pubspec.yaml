@@ -1,0 +1,12 @@
+name: portals
+publish_to: none
+
+environment:
+  sdk: ">=3.7.2"
+
+workspace:
+  # Apps 
+  - apps/resident
+  # Packages
+  - packages/design_system
+  - packages/utils
