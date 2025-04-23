@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
+// Router
 import 'package:go_router/go_router.dart';
+// Material
+import 'package:flutter/material.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({ super.key });
@@ -10,7 +12,7 @@ class SignIn extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         const Text(
-          'Entrar',
+          'Bem-vindo(a)!',
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 24),
@@ -29,12 +31,6 @@ class SignIn extends StatelessWidget {
           obscureText: true,
         ),
         const SizedBox(height: 24),
-        ElevatedButton(
-          onPressed: () {
-            context.go('/');
-          },
-          child: const Text('Entrar'),
-        ),
         const SizedBox(height: 12),
         TextButton(
           onPressed: () {
@@ -42,11 +38,11 @@ class SignIn extends StatelessWidget {
           },
           child: const Text('Esqueci minha senha'),
         ),
-        TextButton(
+        ElevatedButton(
           onPressed: () {
-            context.go('/login/register');
+            context.go('/');
           },
-          child: const Text('Criar conta'),
+          child: const Text('Entrar'),
         ),
       ],
     );

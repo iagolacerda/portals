@@ -15,7 +15,6 @@ final GoRouter appRouter = GoRouter(
     final goingToLogin = state.matchedLocation.startsWith('/login');
     
     if (!loggedIn && !goingToLogin) return '/login';
-    if (loggedIn && goingToLogin) return '/';
     
     return null;
   },
@@ -26,7 +25,6 @@ final GoRouter appRouter = GoRouter(
         GoRoute(path: '/login', builder: (_, __) => const SignIn())
       ],
     ),
-
     ShellRoute(
       builder: (context, state, child) => MainLayout(child: child),
       routes: [

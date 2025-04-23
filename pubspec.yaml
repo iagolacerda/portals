@@ -10,3 +10,4 @@ workspace:
   # Packages
   - packages/design_system
   - packages/utils
+dependencies:

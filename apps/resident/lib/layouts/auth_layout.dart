@@ -1,26 +1,47 @@
-// widgets/auth_layout.dart
+import 'package:design_system/app_svg.dart';
 import 'package:flutter/material.dart';
 
 class AuthLayout extends StatelessWidget {
   final Widget child;
-  const AuthLayout({ required this.child, super.key });
+  const AuthLayout({ super.key, required this.child });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: 400),
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const FlutterLogo(size: 80),
-              const SizedBox(height: 100),
-              child,
-            ],
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'packages/design_system/assets/background.png',
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
+  
+          Positioned(
+            top: 150, 
+            left: 120,
+            child: AppSvg(assetPath: 'packages/design_system/assets/logo-white.svg', size: 80.0),
+          ),
+          
+          Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(10),
+              child: Card(
+                elevation: 8,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 450),
+                    child: child,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
